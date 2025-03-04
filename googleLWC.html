@@ -1,0 +1,30 @@
+<html lang="en">
+
+<script src="	https://cloudcrowdconnect-dev-ed.my.site.com/lightning/lightning.out.js"></script>
+<div data-lightning-out="true"></div>
+
+<script>
+    const appName = 'c:googlePlaceAura';
+    const componentName = 'c:googlePlacesLWC';
+    const lightningEndpoint = 'https://cloudcrowdconnect-dev-ed.my.site.com';
+    const targetElement = document.querySelector("[data-lightning-out]");
+    const componentAttriibutes = {};
+    
+    $Lightning.use(
+      appName, // Name of the Lightning Out app
+      function () {
+        // Callback once framework and app loaded
+        $Lightning.createComponent(
+              componentName, // Top-level component of your app
+              componentAttriibutes, // Attributes to set on the component when created
+              targetElement,
+              function (cmp) {
+                // Callback when component is created and active on the page
+                console.log("Lightning Web Component loaded successfully.");
+              }
+        );
+      },
+      lightningEndpoint
+    );
+</script>
+</html>
