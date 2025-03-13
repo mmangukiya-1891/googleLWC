@@ -1,6 +1,12 @@
 <html lang="en">
-
-<script src="	https://cloudcrowdconnect-dev-ed.my.site.com/lightning/lightning.out.js"></script>
+<!-- NEW FIELDS BEGIN -->
+<input id="utm_source" name="00N5800000Bew3F" type="hidden" />
+<input id="utm_medium" name="00N5800000Bew3G" type="hidden" />
+<input id="utm_campaign" name="00N5800000Bew3H" type="hidden" />
+<input id="utm_term" name="00N5800000Bew3I" type="hidden" />
+<input id="utm_content" name="00N5800000Bew3J" type="hidden" />
+    
+<script src="https://cloudcrowdconnect-dev-ed.my.site.com/lightning/lightning.out.js"></script>
 <div data-lightning-out="true"></div>
 
 <script>
@@ -26,5 +32,28 @@
       },
       lightningEndpoint
     );
+
+    function parseGET(param) {
+    var searchStr = document.location.search;
+    try {
+        var match = searchStr.match('[?&]' + param + '=([^&]+)');
+        if (match) {
+            var result = match[1];
+            result = result.replace(/\+/g, '%20');
+            result = decodeURIComponent(result);
+            return result;
+        } else {
+            return '';
+        }
+    } catch (e) {
+        return '';
+    }
+}
+ 
+document.getElementById('utm_source').value = parseGET('utm_source');
+document.getElementById('utm_medium').value = parseGET('utm_medium');
+document.getElementById('utm_campaign').value = parseGET('utm_campaign');
+document.getElementById('utm_term').value = parseGET('utm_term');
+document.getElementById('utm_content').value = parseGET('utm_content');
 </script>
 </html>
